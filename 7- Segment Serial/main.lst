@@ -1,0 +1,121 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               		.global __do_copy_data
+   8               		.global __do_clear_bss
+  16               	.Ltext0:
+  17               	.global	main
+  19               	main:
+  20               	.LFB6:
+  21               	.LM1:
+  22               	/* prologue: frame size=10 */
+  23 0000 CF93      		push r28
+  24 0002 DF93      		push r29
+  25 0004 CDB7      		in r28,__SP_L__
+  26 0006 DEB7      		in r29,__SP_H__
+  27 0008 2A97      		sbiw r28,10
+  28 000a 0FB6      		in __tmp_reg__,__SREG__
+  29 000c F894      		cli
+  30 000e DEBF      		out __SP_H__,r29
+  31 0010 0FBE      		out __SREG__,__tmp_reg__
+  32 0012 CDBF      		out __SP_L__,r28
+  33               	/* prologue end (size=10) */
+  34               	.LM2:
+  35 0014 DE01      		movw r26,r28
+  36 0016 1196      		adiw r26,1
+  37 0018 E0E0      		ldi r30,lo8(C.0.1538)
+  38 001a F0E0      		ldi r31,hi8(C.0.1538)
+  39 001c 8AE0      		ldi r24,lo8(10)
+  40               	.L2:
+  41               	.LM3:
+  42 001e 0190      		ld r0,Z+
+  43 0020 0D92      		st X+,r0
+  44 0022 8150      		subi r24,lo8(-(-1))
+  45 0024 01F4      		brne .L2
+  46               	.LM4:
+  47 0026 8FEF      		ldi r24,lo8(-1)
+  48 0028 81BB      		out 49-0x20,r24
+  49 002a 40E0      		ldi r20,lo8(0)
+  50 002c 50E0      		ldi r21,hi8(0)
+  51               	.LVL0:
+  52               	.LBB13:
+  53               	.LM5:
+  54 002e BE01      		movw r22,r28
+  55 0030 6F5F      		subi r22,lo8(-(1))
+  56 0032 7F4F      		sbci r23,hi8(-(1))
+  57               	.LVL1:
+  58               	.L15:
+  59 0034 FB01      		movw r30,r22
+  60 0036 E40F      		add r30,r20
+  61 0038 F51F      		adc r31,r21
+  62 003a 8081      		ld r24,Z
+  63               	.LVL2:
+  64 003c 82BB      		out 50-0x20,r24
+  65 003e 28EE      		ldi r18,lo8(1000)
+  66 0040 33E0      		ldi r19,hi8(1000)
+  67               	.L4:
+  68               	.LBB14:
+  69               	.LBB15:
+  70               	.LBB16:
+  71               	.LBB17:
+  72               	.LM6:
+  73 0042 88EC      		ldi r24,lo8(200)
+  74 0044 90E0      		ldi r25,hi8(200)
+  75               	.LVL3:
+  76               	/* #APP */
+  77 0046 0197      		1: sbiw r24,1
+  78 0048 01F4      		brne 1b
+  79               	/* #NOAPP */
+  80               	.LBE17:
+  81               	.LBE16:
+  82               	.LM7:
+  83 004a 2150      		subi r18,lo8(-(-1))
+  84 004c 3040      		sbci r19,hi8(-(-1))
+  85               	.LM8:
+  86 004e 01F4      		brne .L4
+  87               	.LBE15:
+  88               	.LBE14:
+  89               	.LM9:
+  90 0050 4F5F      		subi r20,lo8(-(1))
+  91 0052 5F4F      		sbci r21,hi8(-(1))
+  92 0054 4A30      		cpi r20,10
+  93 0056 5105      		cpc r21,__zero_reg__
+  94 0058 04F0      		brlt .L15
+  95 005a 40E0      		ldi r20,lo8(0)
+  96 005c 50E0      		ldi r21,hi8(0)
+  97 005e 00C0      		rjmp .L15
+  98               	.LBE13:
+  99               	/* epilogue: frame size=10 */
+ 100               	/* epilogue: noreturn */
+ 101               	/* epilogue end (size=0) */
+ 102               	/* function main size 53 (43) */
+ 103               	.LFE6:
+ 105               		.data
+ 108               	C.0.1538:
+ 109 0000 C0        		.byte	-64
+ 110 0001 F9        		.byte	-7
+ 111 0002 A4        		.byte	-92
+ 112 0003 B0        		.byte	-80
+ 113 0004 99        		.byte	-103
+ 114 0005 92        		.byte	-110
+ 115 0006 82        		.byte	-126
+ 116 0007 F8        		.byte	-8
+ 117 0008 80        		.byte	-128
+ 118 0009 90        		.byte	-112
+ 143               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\User\AppData\Local\Temp/ccEuRJ0N.s:2      *ABS*:0000003f __SREG__
+C:\Users\User\AppData\Local\Temp/ccEuRJ0N.s:3      *ABS*:0000003e __SP_H__
+C:\Users\User\AppData\Local\Temp/ccEuRJ0N.s:4      *ABS*:0000003d __SP_L__
+C:\Users\User\AppData\Local\Temp/ccEuRJ0N.s:5      *ABS*:00000000 __tmp_reg__
+C:\Users\User\AppData\Local\Temp/ccEuRJ0N.s:6      *ABS*:00000001 __zero_reg__
+C:\Users\User\AppData\Local\Temp/ccEuRJ0N.s:19     .text:00000000 main
+C:\Users\User\AppData\Local\Temp/ccEuRJ0N.s:108    .data:00000000 C.0.1538
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
